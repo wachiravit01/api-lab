@@ -1,7 +1,7 @@
 import pytest
 
 
-# Boundary values for updating a rating: 1 and 5 are valid (200), 0 and 6 are refused (400).
+# ทดสอบค่าขอบเขต (Boundary Values) ในการอัปเดตเรตติ้ง: 1 และ 5 บันทึกสำเร็จ (200), 0 และ 6 ต้องถูกปฏิเสธ (400)
 @pytest.mark.parametrize(
     "stars,expected_status",
     [
@@ -16,11 +16,11 @@ def test_update_rating_boundary(api, auth, rating, stars, expected_status):
     res = api.put(path, json={"stars": stars}, headers=auth)
     assert res.status_code == expected_status
 
-    # Read back to verify rating state
+    # อ่านข้อมูลกลับมาเพื่อยืนยันสถานะเรตติ้ง
     res_get = api.get(path, headers=auth)
     assert res_get.status_code == 200
     if expected_status == 200:
         assert res_get.json()["stars"] == stars
     else:
-        # A refused update must leave the rating as it was
+        # หากคำขอถูกปฏิเสธ ค่าคะแนนดาวต้องคงเดิม ไม่ถูกแก้ไข
         assert res_get.json()["stars"] == rating["stars"]
