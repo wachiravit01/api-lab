@@ -1,6 +1,6 @@
 # การทดสอบ QuickPizza API ด้วย pytest และ requests
 
-Repository นี้ประกอบด้วยชุดทดสอบอัตโนมัติ (Automated API Test Suites) สำหรับทดสอบระบบ **QuickPizza** (`https://quickpizza.grafana.com`) ซึ่งเป็นส่วนหนึ่งของใบงานปฏิบัติการรายวิชา ITDS362 Software Quality Assurance and Testing
+Repository นี้ประกอบด้วยชุดทดสอบอัตโนมัติ (Automated API Test Suites) สำหรับทดสอบระบบ **QuickPizza** (`https://quickpizza.grafana.com`)
 
 ---
 
